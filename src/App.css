@@ -1,0 +1,166 @@
+/* Base styles for overall background and aesthetic adjustments */
+html, body {
+  background-color: #f4f4f4; /* Soft gray background for less strain on the eyes */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern and clean font family */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main App container styles for centering and sleek presentation */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  min-height: 80vh;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: fadeIn 1s ease-out; /* Animation for the main app container */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styling for the application title */
+.app-name {
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Styles for input fields */
+.city-search {
+  width: 80%;
+  height: 45px;
+  border: 2px solid #0056b3; /* Deep blue border */
+  outline: none;
+  border-radius: 22px;
+  font-size: 16px;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s, width 0.4s ease-in-out; /* Enhanced transition for input focus */
+}
+
+.city-search:focus {
+  border-color: #007bff; /* Lighter blue when focused */
+  width: 100%; /* Expand input width on focus */
+}
+
+/* Search button styling with pulse animation on hover */
+.search-button {
+  padding: 10px 20px;
+  background-color: #0056b3; /* Consistent theme color */
+  color: white;
+  border: none;
+  border-radius: 22px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: pulse 2s infinite; /* Infinite pulse effect for attention */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 86, 179, 0.75);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+.search-button:hover {
+  background-color: #007bff; /* Lighter blue on hover */
+}
+
+/* Container for weather details */
+.weather-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.city-name, .date {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Larger texts for temperature and description */
+.icon-temp, .deg, .des-wind {
+  font-size: 20px;
+  color: #0056b3;
+}
+
+.deg {
+  font-size: 24px;
+}
+
+/* Error message styles */
+.error-message {
+  color: #dc3545;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #f8d7da;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* Responsive design for better mobile and tablet experience */
+@media (max-width: 768px) {
+  .App {
+    border-radius: 0; /* Full width on smaller screens */
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  .city-search, .search-button {
+    width: 90%; /* Increased width for mobile usability */
+  }
+
+  .city-search {
+    margin-bottom: 0; /* Remove extra space on mobile */
+  }
+}
